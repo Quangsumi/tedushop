@@ -1,0 +1,16 @@
+namespace TeduShop.Model.Models
+{
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class VisitorStatistic
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public DateTime VisitedDate { get; set; }
+
+        [MaxLength(50)]
+        public string IPAddress { get; set; }
+    }
+}
