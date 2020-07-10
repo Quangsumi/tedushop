@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TeduShop.Model.Abstract
+namespace TeduShop.Data.Abstract
 {
     public interface IAuditable
     {

@@ -1,15 +1,14 @@
-namespace TeduShop.Model.Models
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+using System.Data.Entity;
+using TeduShop.Data.Models;
 
-    public partial class Context : DbContext
+namespace TeduShop.Data
+{
+
+    public partial class TeduShopDbContext : DbContext
     {
-        public Context()
-            : base("name=Context")
+        public TeduShopDbContext() : base("name=TeduShopConnectionString")
         {
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Footer> Footers { get; set; }

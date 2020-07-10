@@ -1,9 +1,9 @@
-namespace TeduShop.Model.Models
+namespace TeduShop.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using TeduShop.Model.Abstract;
+    using TeduShop.Data.Abstract;
 
     public partial class Post : Auditable
     {

@@ -1,4 +1,4 @@
-namespace TeduShop.Model.Models
+namespace TeduShop.Data.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
