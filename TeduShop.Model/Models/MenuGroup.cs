@@ -13,7 +13,7 @@ namespace TeduShop.Model.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         public virtual ICollection<Menu> Menus { get; set; }

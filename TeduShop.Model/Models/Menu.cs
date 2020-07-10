@@ -7,7 +7,7 @@ namespace TeduShop.Model.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         [Required]
@@ -19,7 +19,7 @@ namespace TeduShop.Model.Models
         [Required]
         public int GroupId { get; set; }
 
-        [MaxLength(10)]
+        [StringLength(10)]
         public string Target { get; set; }
 
         public bool Status { get; set; }

@@ -9,11 +9,11 @@ namespace TeduShop.Model.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         [Column(TypeName = "varchar")]
         public string Alias { get; set; }
 

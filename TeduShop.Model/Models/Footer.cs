@@ -5,7 +5,7 @@ namespace TeduShop.Model.Models
     public partial class Footer
     {
         [Key]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Id { get; set; }
 
         [Required]

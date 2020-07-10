@@ -15,21 +15,21 @@ namespace TeduShop.Model.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [StringLength(250)]
         [Column(TypeName = "varchar")]
         public string Alias { get; set; }
 
         [Required]
         public int CategoryId { get; set; }
 
-        [MaxLength(500)]
+        [StringLength(500)]
         public string Image { get; set; }
 
-        [MaxLength(500)]
+        [StringLength(500)]
         public string Description { get; set; }
 
         public string Content { get; set; }

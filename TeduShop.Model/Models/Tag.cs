@@ -12,15 +12,15 @@ namespace TeduShop.Model.Models
         }
 
         [Key]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Type { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
