@@ -1,4 +1,4 @@
-namespace TeduShop.Data.Models
+namespace TeduShop.Model.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -30,7 +30,7 @@ namespace TeduShop.Data.Models
         public string Image { get; set; }
 
         [Column(TypeName = "xml")]
-        public XElement MoreImages { get; set; }
+        public string MoreImages { get; set; }
 
         [StringLength(500)]
         public string Description { get; set; }

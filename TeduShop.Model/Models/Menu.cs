@@ -1,4 +1,4 @@
-namespace TeduShop.Data.Models
+namespace TeduShop.Model.Models
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -16,8 +16,7 @@ namespace TeduShop.Data.Models
 
         public int? DisplayOrder { get; set; }
 
-        [Required]
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
 
         [StringLength(10)]
         public string Target { get; set; }

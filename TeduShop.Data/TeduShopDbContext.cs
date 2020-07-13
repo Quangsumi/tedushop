@@ -1,13 +1,14 @@
 using System.Data.Entity;
-using TeduShop.Data.Models;
+using TeduShop.Model.Models;
 
 namespace TeduShop.Data
 {
 
     public partial class TeduShopDbContext : DbContext
     {
-        public TeduShopDbContext() : base("name=TeduShopConnectionString")
+        public TeduShopDbContext() : base()
         {
+            Database.SetInitializer<TeduShopDbContext>(new DropCreateDatabaseIfModelChanges<TeduShopDbContext>());
             Configuration.LazyLoadingEnabled = false;
         }
 

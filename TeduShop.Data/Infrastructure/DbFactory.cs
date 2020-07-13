@@ -1,4 +1,4 @@
-﻿using TeduShop.Data.Models;
+﻿using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Infrastructure
 {
