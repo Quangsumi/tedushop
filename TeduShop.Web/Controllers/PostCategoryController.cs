@@ -19,9 +19,28 @@ namespace TeduShop.Web.Controllers
 
         public ActionResult Index()
         {
-            var count = _postCategoryService.GetAll().Count();
+            var model = _postCategoryService.GetAll().ElementAt(0);
 
-            return Content(count.ToString());
+            var dto = new PostCategoryDto();
+
+            AutoMapperConfig.Mapper.Map(model, dto);
+
+            var cnt = $"Id: {dto.Id}, Name: {dto.Name}, Alias: {dto.Alias}, Description: {dto.Description}, Status: {dto.Status}";
+
+            return Content(cnt);
         }
+    }
+
+    public class PostCategoryDto
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Alias { get; set; }
+
+        public string Description { get; set; }
+
+        public bool Status { get; set; }
     }
 }

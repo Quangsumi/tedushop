@@ -22,6 +22,12 @@ namespace TeduShop.Web
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
 
             ConfigAutofac(app);
+            ConfigAutoMapper(app);
+        }
+
+        private void ConfigAutoMapper(IAppBuilder app)
+        {
+            AutoMapperConfig.Init();
         }
 
         private void ConfigAutofac(IAppBuilder app)
