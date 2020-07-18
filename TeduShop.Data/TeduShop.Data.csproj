@@ -58,8 +58,14 @@
     <Compile Include="Migrations\202007120928404_InitModels.Designer.cs">
       <DependentUpon>202007120928404_InitModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007180853096_AddErrorsTable.cs" />
+    <Compile Include="Migrations\202007180853096_AddErrorsTable.Designer.cs">
+      <DependentUpon>202007180853096_AddErrorsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IErrorRepository.cs" />
     <Compile Include="Repositories\Interfaces\IFooterRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMenuGroupRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMenuRepository.cs" />
@@ -108,6 +114,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007120928404_InitModels.resx">
       <DependentUpon>202007120928404_InitModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007180853096_AddErrorsTable.resx">
+      <DependentUpon>202007180853096_AddErrorsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
