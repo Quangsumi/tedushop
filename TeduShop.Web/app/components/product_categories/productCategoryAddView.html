@@ -30,31 +30,12 @@
                 <!-- form start -->
                 <form class="form-horizontal" novalidate name="frmAddProductCategory" role="form" ng-submit="AddProductCategory()">
                     <div class="card-body">
-                        <!--<div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                <label class="form-check-label" for="exampleCheck2">Remember me</label>
-            </div>
-        </div>
-    </div>-->
-
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" ng-model="productCategory.Name">
+                                <input type="text" class="form-control" ng-maxlength="256" required name="name" ng-model="productCategory.Name">
+                                <span ng-show="frmAddProductCategory.name.$error.required">Phai nhap ten danh muc</span>
+                                <span ng-show="frmAddProductCategory.name.$error.maxlength">Ten danh muc khong duoc vuot qua 256 ky tu</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -81,7 +62,8 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Thứ tự</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="displayOrder" ng-model="productCategory.DisplayOrder">
+                                <input type="number" class="form-control" required name="displayOrder" ng-model="productCategory.DisplayOrder">
+                                <span ng-show="frmAddProductCategory.displayOrder.$invalid">Phai nhap thu tu</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -120,8 +102,8 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success">Luu</button>
-                        <button type="submit" ui-sref="product_categories"  class="btn btn-default float-right">Huy</button>
+                        <button type="submit" ng-disabled="frmAddProductCategory.$invalid" class="btn btn-success">Luu</button>
+                        <button type="submit"  ui-sref="product_categories"  class="btn btn-default float-right">Huy</button>
                     </div>
                     <!-- /.card-footer -->
                 </form>
