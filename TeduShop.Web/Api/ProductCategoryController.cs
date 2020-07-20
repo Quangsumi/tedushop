@@ -31,13 +31,13 @@ namespace TeduShop.Web.Api
                 int totalRow = 0;
 
                 var model = _productCategoryService.GetAll(keyword);
-                
+
                 totalRow = model.Count();
 
                 var query = model.OrderByDescending(m => m.CreatedBy).Skip(pageSize * page).Take(pageSize);
 
                 var responseData = new List<ProductCategoryViewModel>();
-                
+
                 AutoMapperConfig.Mapper.Map(query, responseData);
 
                 var paginationList = new PaginationSet<ProductCategoryViewModel>
@@ -49,8 +49,54 @@ namespace TeduShop.Web.Api
                 };
 
                 var response = request.CreateResponse(HttpStatusCode.OK, paginationList);
-                
-                return response; 
+
+                return response;
+            });
+        }
+
+        [Route("getallparents")]
+        [HttpGet]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _productCategoryService.GetAll();
+
+                var responseData = new List<ProductCategoryViewModel>();
+
+                AutoMapperConfig.Mapper.Map(model, responseData);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
+        [Route("create")]
+        [HttpPost]
+        [AllowAnonymous]
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var newProductCategory = new ProductCategory();
+                    newProductCategory = AutoMapperConfig.Mapper.Map(productCategoryVm, newProductCategory);
+
+                    _productCategoryService.Add(newProductCategory);
+                    _productCategoryService.Save();
+
+                    var responseData = AutoMapperConfig.Mapper.Map(newProductCategory, productCategoryVm);
+
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
+
+                return response;
             });
         }
     }

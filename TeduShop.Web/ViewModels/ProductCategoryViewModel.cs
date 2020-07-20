@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TeduShop.Web.ViewModels
 {
@@ -6,8 +7,10 @@ namespace TeduShop.Web.ViewModels
     {
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Alias { get; set; }
 
         public string Description { get; set; }
@@ -33,7 +36,8 @@ namespace TeduShop.Web.ViewModels
         public string MetaKeyword { get; set; }
 
         public string MetaDescription { get; set; }
-
+        
+        [Required]
         public bool Status { get; set; }
     }
 }
