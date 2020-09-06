@@ -42,6 +42,7 @@ namespace TeduShop.Web
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
 
+            // Since DbContext is managed by DbFactory, is it necessary to have this line of code?
             builder.RegisterType<TeduShopDbContext>().AsSelf().InstancePerRequest();
 
             //Asp.net Identity

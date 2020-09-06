@@ -30,10 +30,10 @@ namespace TeduShop.Data.Migrations
             {
                 List<ProductCategory> listProductCategory = new List<ProductCategory>()
                 {
-                    new ProductCategory() { Name="Dien Lanh",Alias="dien-lanh",Status=true },
-                    new ProductCategory() { Name="Vien Thong",Alias="vien-thong",Status=true },
-                    new ProductCategory() { Name="Do Gia Dung",Alias="do-gia-dung",Status=true },
-                    new ProductCategory() { Name="My Pham",Alias="my-pham",Status=true }
+                    new ProductCategory() { Name="Dien Lanh",Alias="dien-lanh", Status=true },
+                    new ProductCategory() { Name="Vien Thong",Alias="vien-thong", Status=true },
+                    new ProductCategory() { Name="Do Gia Dung",Alias="do-gia-dung", Status=true },
+                    new ProductCategory() { Name="My Pham",Alias="my-pham", Status=true }
                 };
             
                 context.ProductCategories.AddRange(listProductCategory);

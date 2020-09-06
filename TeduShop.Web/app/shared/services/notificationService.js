@@ -30,6 +30,7 @@
         function displayWarning(message) {
             toastr.warning(message);
         }
+
         function displayInfo(message) {
             toastr.info(message);
         }
