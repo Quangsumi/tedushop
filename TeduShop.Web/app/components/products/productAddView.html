@@ -88,6 +88,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="image" class="col-sm-2 control-label">Them Hình ảnh</label>
+                            <div class="col-sm-10">
+                                <ul class="list-inline">
+                                    <li ng-repeat="img in moreImages"><img ng-src="{{img}}" width="100"/></li>
+                                </ul>
+                                <button class="btn btn-default" type="button" ng-click="ChooseMoreImage()">Chon them anh</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Meta Keyword</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="metaKeyword" ng-model="product.MetaKeyword">
