@@ -38,6 +38,8 @@ namespace TeduShop.Web.ViewModels
 
         //public virtual ICollection<Tag> Tags { get; set; }
 
+        public string StringTags { get; set; }
+
         public DateTime? CreatedDate { get; set; }
 
         public string CreatedBy { get; set; }

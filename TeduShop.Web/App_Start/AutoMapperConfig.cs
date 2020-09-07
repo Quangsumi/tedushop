@@ -18,12 +18,14 @@ namespace TeduShop.Web
             {
                 // Mapping domain entities to view entities
                 cfg.CreateMap<PostCategory, PostCategoryDto>();
+                cfg.CreateMap<Product, ProductViewModel>();
                 cfg.CreateMap<ProductCategory, ProductCategoryViewModel>();
                 //cfg.CreateMap<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>();
                 //cfg.CreateMap<List<Category>, List<CategoryViewModel>>();
 
                 // Mapping view entities to domain entities
                 cfg.CreateMap<PostCategoryDto, PostCategory>();
+                cfg.CreateMap<ProductViewModel, Product>();
                 cfg.CreateMap<ProductCategoryViewModel, ProductCategory>();
                 //cfg.CreateMap<IEnumerable<ProductCategoryViewModel>, IEnumerable<ProductCategory>>();
                 //cfg.CreateMap<TagViewModel, Tag>();

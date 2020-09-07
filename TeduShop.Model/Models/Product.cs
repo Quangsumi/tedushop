@@ -49,6 +49,8 @@ namespace TeduShop.Model.Models
 
         public int? ViewCount { get; set; }
 
+        public string StringTags { get; set; }
+
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }

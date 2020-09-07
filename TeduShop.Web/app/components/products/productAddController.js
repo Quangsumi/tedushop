@@ -16,11 +16,11 @@
 
         $scope.AddProduct = AddProduct;
 
-        //$scope.GetSeoTitle = GetSeoTitle;
+        $scope.GetSeoTitle = GetSeoTitle;
 
-        //function GetSeoTitle() {
-        //    $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
-        //}
+        function GetSeoTitle() {
+            $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
+        }
 
         function AddProduct() {
             apiService.post('/api/product/create', $scope.product,

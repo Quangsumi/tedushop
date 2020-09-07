@@ -62,6 +62,10 @@
     <Compile Include="Migrations\202007180853096_AddErrorsTable.Designer.cs">
       <DependentUpon>202007180853096_AddErrorsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009071207184_AddField_StringTags_ToProduct.cs" />
+    <Compile Include="Migrations\202009071207184_AddField_StringTags_ToProduct.Designer.cs">
+      <DependentUpon>202009071207184_AddField_StringTags_ToProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007180853096_AddErrorsTable.resx">
       <DependentUpon>202007180853096_AddErrorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071207184_AddField_StringTags_ToProduct.resx">
+      <DependentUpon>202009071207184_AddField_StringTags_ToProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

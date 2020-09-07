@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">
+      <Project>{9bba3c40-f162-4d57-a6b4-8e5d6c513d33}</Project>
+      <Name>TeduShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeduShop.Data\TeduShop.Data.csproj">
       <Project>{26C2F262-AABB-4A1B-BDA9-C4CABB6D17E7}</Project>
       <Name>TeduShop.Data</Name>

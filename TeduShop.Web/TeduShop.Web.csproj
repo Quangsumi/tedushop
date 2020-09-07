@@ -4240,6 +4240,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">
+      <Project>{9BBA3C40-F162-4D57-A6B4-8E5D6C513D33}</Project>
+      <Name>TeduShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeduShop.Data\TeduShop.Data.csproj">
       <Project>{26c2f262-aabb-4a1b-bda9-c4cabb6d17e7}</Project>
       <Name>TeduShop.Data</Name>

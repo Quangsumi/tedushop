@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using TeduShop.Common;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Helper;
@@ -105,7 +106,7 @@ namespace TeduShop.Web.Api
                     AutoMapperConfig.Mapper.Map(productCategoryVm, newProduct);
                     
                     newProduct.CreatedDate = DateTime.Now;
-                    
+
                     _productService.Add(newProduct);
                     _productService.Save();
 

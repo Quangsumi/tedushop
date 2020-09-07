@@ -2,51 +2,55 @@
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
+using TeduShop.Common;
 
 namespace TeduShop.Service
 {
     public class ProductService : IProductService
     {
         private IProductRepository _productRepository;
-        //private ITagRepository _tagRepository;
-        //private IProductTagRepository _productTagRepository;
+        private ITagRepository _tagRepository;
 
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork) //IProductTagRepository productTagRepository, ITagRepository _tagRepository)
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork, ITagRepository _tagRepository)
         {
             this._productRepository = productRepository;
-            //this._productTagRepository = productTagRepository;
-            //this._tagRepository = _tagRepository;
+            this._tagRepository = _tagRepository;
             this._unitOfWork = unitOfWork;
         }
 
-        public Product Add(Product Product)
+        public Product Add(Product product)
         {
-            var product = _productRepository.Add(Product);
-            //_unitOfWork.Commit();
-            //if (!string.IsNullOrEmpty(Product.Tags))
-            //{
-            //    string[] tags = Product.Tags.Split(',');
-            //    for (var i = 0; i < tags.Length; i++)
-            //    {
-            //        var tagId = StringHelper.ToUnsignString(tags[i]);
-            //        if (_tagRepository.Count(x => x.ID == tagId) == 0)
-            //        {
-            //            Tag tag = new Tag();
-            //            tag.ID = tagId;
-            //            tag.Name = tags[i];
-            //            tag.Type = CommonConstants.ProductTag;
-            //            _tagRepository.Add(tag);
-            //        }
-                    
-            //        ProductTag productTag = new ProductTag();
-            //        productTag.ProductID = Product.ID;
-            //        productTag.TagID = tagId;
-            //        _productTagRepository.Add(productTag);
-            //    }
-            //}
-            return product;
+            var addedProduct = _productRepository.Add(product);
+
+            if (!string.IsNullOrEmpty(product.StringTags))
+            {
+                string[] tags = product.StringTags.Split(',');
+
+                foreach (var tag in tags)
+                {
+                    var tagId = StringHelper.ToUnsignString(tag);
+
+                    if (_tagRepository.Count(x => x.Id == tagId) == 0)
+                    {
+                        Tag newTag = new Tag();
+                        newTag.Id = tagId;
+                        newTag.Name = tag;
+                        newTag.Type = CommonConstants.ProductTag;
+                        _tagRepository.Add(newTag);
+
+                        product.Tags.Add(newTag);
+                    }
+                    else
+                    {
+                        Tag exitingTag = _tagRepository.GetSingleByCondition(t => t.Id == tagId);
+                        product.Tags.Add(exitingTag);
+                    }
+                }
+            }
+
+            return addedProduct;
         }
 
         public Product Delete(int id)
@@ -77,31 +81,30 @@ namespace TeduShop.Service
             _unitOfWork.Commit();
         }
 
-        public void Update(Product Product)
+        public void Update(Product product)
         {
-            //_productRepository.Update(Product);
-            //if (!string.IsNullOrEmpty(Product.Tags))
-            //{
-            //    string[] tags = Product.Tags.Split(',');
-            //    for (var i = 0; i < tags.Length; i++)
-            //    {
-            //        var tagId = StringHelper.ToUnsignString(tags[i]);
-            //        if (_tagRepository.Count(x => x.ID == tagId) == 0)
-            //        {
-            //            Tag tag = new Tag();
-            //            tag.ID = tagId;
-            //            tag.Name = tags[i];
-            //            tag.Type = CommonConstants.ProductTag;
-            //            _tagRepository.Add(tag);
-            //        }
-            //        _productTagRepository.DeleteMulti(x => x.ProductID == Product.ID);
-            //        ProductTag productTag = new ProductTag();
-            //        productTag.ProductID = Product.ID;
-            //        productTag.TagID = tagId;
-            //        _productTagRepository.Add(productTag);
-            //    }
+            _productRepository.Update(product);
 
-            //}
+            if (!string.IsNullOrEmpty(product.StringTags))
+            {
+                string[] tags = product.StringTags.Split(',');
+
+                foreach (var tag in tags)
+                {
+                    var tagId = StringHelper.ToUnsignString(tag);
+
+                    if (_tagRepository.Count(x => x.Id == tagId) == 0)
+                    {
+                        Tag newTag = new Tag();
+                        newTag.Id = tagId;
+                        newTag.Name = tag;
+                        newTag.Type = CommonConstants.ProductTag;
+                        _tagRepository.Add(newTag);
+
+                        product.Tags.Add(newTag);
+                    }
+                }
+            }
         }
     }
 }
