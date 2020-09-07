@@ -4,10 +4,10 @@
     productAddController.$inject = ['apiService', '$scope', 'notificationService', '$state', 'commonService'];
 
     function productAddController(apiService, $scope, notificationService, $state, commonService) {
-        //$scope.product = {
-        //    CreatedDate: new Date(),
-        //    Status: true,
-        //}
+        $scope.product = {
+            CreatedDate: new Date(),
+            Status: true,
+        }
 
         $scope.ckeditorOptions = {
             languague: 'vi',
@@ -40,13 +40,13 @@
             });
         }
 
-        //$scope.ChooseImage = function () {
-        //    var finder = new CKFinder();
-        //    finder.selectActionFunction = function (fileUrl) {
-        //        $scope.product.Image = fileUrl;
-        //    }
-        //    finder.popup();
-        //}
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.product.Image = fileUrl;
+            }
+            finder.popup();
+        }
 
         loadProductCategory();
     }
